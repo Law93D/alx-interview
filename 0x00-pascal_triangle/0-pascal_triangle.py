@@ -1,4 +1,14 @@
 def pascal_triangle(n):
+    """
+    Generates Pascal's Triangle up to the nth row.
+
+    Args:
+    - n: An integer specifying the number of rows of Pascal's Triangle to generate.
+
+    Returns:
+    - A list of lists of integers representing Pascal's Triangle.
+      Returns an empty list if n <= 0.
+    """
     if n <= 0:
         return []
 
@@ -18,9 +28,16 @@ def pascal_triangle(n):
 
 # Example usage and testing:
 def print_triangle(triangle):
+    """
+    Prints the Pascal's Triangle.
+
+    Args:
+    - triangle: A list of lists of integers representing Pascal's Triangle.
+    """
     for row in triangle:
-        print("[{}]".format(",".join([str(x) for x in row])))
+        print("[{}]".format(",".join(map(str, row))))
 
 if __name__ == "__main__":
+    # Test case: Print Pascal's Triangle with 5 rows
     triangle = pascal_triangle(5)
     print_triangle(triangle)
