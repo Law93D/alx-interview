@@ -21,18 +21,14 @@ def minOperations(n):
     num_of_operations = 0
 
     while n > 1:
-        if n % divisor == 0:
-            print("Divisor is:", divisor)
-            n = n // divisor  # Use integer division
-            print("n = n / divisor:", n)
+        while n % divisor == 0:
+            n //= divisor  # Use integer division
             num_of_operations += divisor
-            print("Number of operations:", num_of_operations)
-        else:
-            divisor += 1
-            print("Divisor after increment:", divisor)
+        divisor += 1
 
     return num_of_operations
 
 # Example usage
-n = 12
-print("Min number of operations to reach {} characters: {}".format(n, minOperations(n)))
+if __name__ == "__main__":
+    n = 12
+    print("Min number of operations to reach {} characters: {}".format(n, minOperations(n)))
