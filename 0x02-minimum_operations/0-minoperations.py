@@ -1,38 +1,38 @@
+#!/usr/bin/python3
 """
-In a text file, there is a single character 'H'.
-Your text editor can execute only two operations in
-this file: 'copy All' and 'paste'.
-Given a number n, write a method that calculate the
-fewest number of operations needed to result in
-exactly 'n' 'H' characters in the file.
-
-program will return an integer.
-If 'n' is impossible to achieve, return '0'
+Minimum Operations module
 """
 
 def minOperations(n):
+    """
+    Calculates the fewest number of operations needed to result in exactly n H characters
+    in the file.
+
+    Args:
+        n (int): The number of H characters to achieve.
+
+    Returns:
+        int: The minimum number of operations needed, or 0 if n is impossible to achieve.
+    """
     if n <= 1:
         return 0
 
     divisor = 2
-
     num_of_operations = 0
-    
+
     while n > 1:
         if n % divisor == 0:
-            print("divisor is: ", divisor)
-            n = n / divisor
-            print("\nn = n / divisor", n)
-
-            num_of_operations = num_of_operations = divisor
-            print("\nnum of ops", num_of_operations)
-
+            print("Divisor is:", divisor)
+            n = n // divisor  # Use integer division
+            print("n = n / divisor:", n)
+            num_of_operations += divisor
+            print("Number of operations:", num_of_operations)
         else:
             divisor += 1
-            print("divisor after increament: ", divisor)
+            print("Divisor after increment:", divisor)
 
     return num_of_operations
 
+# Example usage
 n = 12
-
-print(minOperations(n))
+print("Min number of operations to reach {} characters: {}".format(n, minOperations(n)))
