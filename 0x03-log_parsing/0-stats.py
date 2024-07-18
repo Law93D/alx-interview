@@ -32,15 +32,18 @@ try:
             parts = line.split()
             if len(parts) < 7:
                 continue
+
             # Extract the relevant parts of the log line
             file_size = int(parts[-1])
             status_code = int(parts[-2])
 
             # Update total file size
             total_size += file_size
+
             # Update status code counts if valid
             if status_code in status_codes:
                 status_codes[status_code] += 1
+
             line_count += 1
 
             # Print stats every 10 lines
